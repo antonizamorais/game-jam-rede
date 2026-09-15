@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://cwdafdcuf86og"]
+
+[sub_resource type="GDScript" id="GDScript_h65gn"]
+script/source = "@tool
+extends Node2D
+
+@export_category(\"Shooter\")
+
+@export_range(0.0, 100000.0, 10.0) var force := 1000.0:
+	set(value):
+		force = value
+		_update_trajectory()
+
+
+@export_category(\"Projectile\")
+
+@export_range(0.001, 1000.0, 0.001) var mass := 1.0:
+	set(value):
+		mass = value
+		_update_trajectory()
+
+@export_range(0.0, 90.0, 1.0) var angle := 45.0:
+	set(value):
+		angle = value
+		_update_trajectory()
+
+@export_range(0.0, 5000.0, 10.0) var gravity := 980.0:
+	set(value):
+		gravity = value
+		_update_trajectory()
+
+
+@export_category(\"Trajectory Preview\")
+
+@export_range(0.1, 30.0, 0.1) var trajectory_time := 5.0:
+	set(value):
+		trajectory_time = value
+		_update_trajectory()
+
+@export_range(0.005, 0.5, 0.005) var sample_step := 0.05:
+	set(value):
+		sample_step = value
+		_update_trajectory()
+
+@export_range(0.1, 20.0, 0.1) var trajectory_width := 2.0:
+	set(value):
+		trajectory_width = value
+		if is_instance_valid(trajectory):
+			trajectory.width = value
+
+
+var trajectory: Line2D
+
+
+func _ready() -> void:
+	_ensure_trajectory()
+	_update_trajectory()
+
+
+func _ensure_trajectory() -> void:
+	if is_instance_valid(trajectory):
+		return
+	
+	trajectory = Line2D.new()
+	trajectory.name = \"Trajectory\"
+	trajectory.width = trajectory_width
+	
+	add_child(
+		trajectory,
+		false,
+		Node.INTERNAL_MODE_BACK
+	)
+
+
+func _update_trajectory() -> void:
+	if not is_inside_tree():
+		return
+	
+	_ensure_trajectory()
+	
+	if mass <= 0.0:
+		trajectory.clear_points()
+		return
+	
+	# Force is treated as impulse:
+	# J = Δp = m * Δv
+	var initial_speed := force / mass
+	
+	var angle_rad := deg_to_rad(angle)
+	
+	var initial_velocity := Vector2(
+		cos(angle_rad),
+		-sin(angle_rad)
+	) * initial_speed
+	
+	var gravity_vector := Vector2.DOWN * gravity
+	
+	var sample_count := maxi(
+		1,
+		ceili(trajectory_time / sample_step)
+	)
+	
+	var points := PackedVector2Array()
+	
+	for i in range(sample_count + 1):
+		var t := trajectory_time * float(i) / sample_count
+	
+		var position := (
+			initial_velocity * t
+			+ 0.5 * gravity_vector * t * t
+		)
+	
+		points.append(position)
+	
+	trajectory.points = points
+"
+
+[node name="ProjectileTest" type="Node2D" unique_id=573185360]
+script = SubResource("GDScript_h65gn")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cv8usfcvikrpn" path="res://seta.svg" id="1_3iy47"]
 [ext_resource type="Script" uid="uid://bhfcy34qr1m05" path="res://game_controller.gd" id="1_soqow"]
+[ext_resource type="PackedScene" uid="uid://jpul0wfqybwt" path="res://projectile.tscn" id="2_vgxje"]
 
 [sub_resource type="Animation" id="Animation_pip85"]
 length = 0.001
@@ -81,6 +82,7 @@ _data = {
 [node name="GameController" type="Node2D" unique_id=1076088073]
 position = Vector2(556, 329)
 script = ExtResource("1_soqow")
+projectile_scene = ExtResource("2_vgxje")
 
 [node name="AimPivot" type="Node2D" parent="." unique_id=774958404]
 

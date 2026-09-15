@@ -20,6 +20,16 @@ config/icon="res://icon.svg"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[editor]
+
+movie_writer/movie_file="/home/gersonfedutra/Projects/Godot/4.7.2/game-jam-rede/.bin/output.avi"
+
+[file_customization]
+
+folder_colors={
+"res://test/": "orange"
+}
+
 [input]
 
 launch_button={
