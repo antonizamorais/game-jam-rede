@@ -1,29 +1,45 @@
 extends Node2D
 
-@export var gravity: float = 980.0   # px/s² — ajuste ao gosto
-@export var max_lifetime: float = 5.0
+@export var force: float = 1000.0
+@export var mass: float = 1.0
+@export var angle_deg: float = 45.0
+@export var gravity: float = 980.0
 
-var velocity: Vector2 = Vector2.ZERO
-var _time_alive: float = 0.0
+var p0: Vector2 = Vector2.ZERO
+var v0: Vector2 = Vector2.ZERO
+var elapsed: float = 0.0
+var flying: bool = false
 
-func launch(initial_velocity: Vector2) -> void:
-	velocity = initial_velocity
-	_time_alive = 0.0
-	set_physics_process(true)
+func launch(from_position: Vector2, shoot_force: float, projectile_mass: float, shoot_angle_deg: float, grav: float) -> void:
+	force = shoot_force
+	mass = projectile_mass
+	angle_deg = shoot_angle_deg
+	gravity = grav
+
+	p0 = from_position
+	global_position = p0
+	elapsed = 0.0
+
+	var angle_rad: float = deg_to_rad(angle_deg)
+	# v0 = (J/m) * (cos θ, -sin θ)
+	# y negativo porque no Godot o eixo Y positivo aponta pra baixo.
+	v0 = (force / mass) * Vector2(cos(angle_rad), -sin(angle_rad))
+
+	flying = true
 
 func _physics_process(delta: float) -> void:
-	_time_alive += delta
-	velocity.y += gravity * delta
-	position += velocity * delta
+	if not flying:
+		return
 
-	# gira o sprite acompanhando a trajetória
-	rotation = velocity.angle()
+	elapsed += delta
 
-	# saiu da tela ou passou do tempo -> remove
-	var vp_rect: Rect2 = get_viewport_rect()
-	var out_of_bounds := not vp_rect.grow(200).has_point(get_viewport_transform() * global_position)
-	if out_of_bounds or _time_alive > max_lifetime:
-		queue_free()
+	# p(t) = p0 + v0*t + 0.5*a*t^2  (a = (0, gravity))
+	var gravity_term: Vector2 = 0.5 * Vector2(0.0, gravity) * elapsed * elapsed
+	global_position = p0 + v0 * elapsed + gravity_term
 
-func _on_area_2d_body_entered(_body: Node) -> void:
-	queue_free()
+	# girar o sprite acompanhando a direção da velocidade atual
+	var current_velocity: Vector2 = v0 + Vector2(0.0, gravity) * elapsed
+	rotation = current_velocity.angle()
+
+	if global_position.y >= p0.y and elapsed > 0.1:
+		flying = false
