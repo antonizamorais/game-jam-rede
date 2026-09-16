@@ -92,7 +92,7 @@ func _launch_projectile(power: float) -> void:
 
 	var angle_deg: float = -rad_to_deg(aim_pivot.rotation)
 	var force: float = power * force_scale
-
+	
 	projectile.launch(launch_point.global_position, force, mass, angle_deg, gravity)
 
 	await get_tree().create_timer(reset_delay).timeout
