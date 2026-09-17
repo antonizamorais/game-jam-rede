@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bf2huh5daucq"]
+[gd_scene format=3 uid="uid://8xs7vk32iyjm"]
 
-[ext_resource type="Texture2D" uid="uid://cv8usfcvikrpn" path="res://seta.svg" id="1_3iy47"]
-[ext_resource type="Script" uid="uid://bhfcy34qr1m05" path="res://game_controller.gd" id="1_soqow"]
-[ext_resource type="PackedScene" uid="uid://jpul0wfqybwt" path="res://projectile.tscn" id="2_vgxje"]
+[ext_resource type="Script" uid="uid://bhfcy34qr1m05" path="res://src/game_controller.gd" id="1_x5g8a"]
+[ext_resource type="PackedScene" uid="uid://jpul0wfqybwt" path="res://src/projectile.tscn" id="2_au1r1"]
+[ext_resource type="Texture2D" uid="uid://cv8usfcvikrpn" path="res://assets/seta.svg" id="3_rt8jy"]
 
 [sub_resource type="Animation" id="Animation_pip85"]
 length = 0.001
@@ -82,17 +82,21 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1nbf"]
 size = Vector2(162, 681)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6ybug"]
+
 [node name="GameController" type="Node2D" unique_id=1076088073]
 position = Vector2(200, 284)
-script = ExtResource("1_soqow")
-projectile_scene = ExtResource("2_vgxje")
+script = ExtResource("1_x5g8a")
+projectile_scene = ExtResource("2_au1r1")
+force_scale = 80.0
+trajectory_time = 99999.0
 
 [node name="AimPivot" type="Node2D" parent="." unique_id=774958404]
 
 [node name="Sprite2D" type="Sprite2D" parent="AimPivot" unique_id=908414787]
 position = Vector2(-3.8146973e-06, 3.8146973e-06)
 scale = Vector2(8.553517, 10.949184)
-texture = ExtResource("1_3iy47")
+texture = ExtResource("3_rt8jy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AimPivot" unique_id=617017425]
 libraries/ = SubResource("AnimationLibrary_soqow")
@@ -114,4 +118,11 @@ libraries/ = SubResource("AnimationLibrary_i1fhm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=558469035]
 position = Vector2(957, 34.5)
 shape = SubResource("RectangleShape2D_x1nbf")
+debug_color = Color(0.89815867, 0.26633158, 0.43985853, 0.41960785)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=2113570910]
+position = Vector2(18, 366)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=362945079]
+shape = SubResource("WorldBoundaryShape2D_6ybug")
 debug_color = Color(0.89815867, 0.26633158, 0.43985853, 0.41960785)

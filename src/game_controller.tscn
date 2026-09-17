@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://bf2huh5daucq"]
+
+[ext_resource type="Script" uid="uid://bhfcy34qr1m05" path="res://src/game_controller.gd" id="1_qnpg3"]
+[ext_resource type="PackedScene" uid="uid://jpul0wfqybwt" path="res://src/projectile.tscn" id="2_qnpg3"]
+[ext_resource type="Texture2D" uid="uid://cv8usfcvikrpn" path="res://assets/seta.svg" id="3_fp7jr"]
+
+[sub_resource type="Animation" id="Animation_pip85"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3iy47"]
+resource_name = "aim_loop"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.8726646259971648]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_soqow"]
+_data = {
+&"RESET": SubResource("Animation_pip85"),
+&"aim_loop": SubResource("Animation_3iy47")
+}
+
+[sub_resource type="Animation" id="Animation_soqow"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vgxje"]
+resource_name = "power_loop"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 50.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i1fhm"]
+_data = {
+&"RESET": SubResource("Animation_soqow"),
+&"power_loop": SubResource("Animation_vgxje")
+}
+
+[node name="GameController" type="Node2D" unique_id=1076088073]
+script = ExtResource("1_qnpg3")
+projectile_scene = ExtResource("2_qnpg3")
+force_scale = 80.0
+trajectory_time = 99999.0
+
+[node name="AimPivot" type="Node2D" parent="." unique_id=774958404]
+
+[node name="Sprite2D" type="Sprite2D" parent="AimPivot" unique_id=908414787]
+position = Vector2(-3.8146973e-06, 3.8146973e-06)
+scale = Vector2(8.553517, 10.949184)
+texture = ExtResource("3_fp7jr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AimPivot" unique_id=617017425]
+libraries/ = SubResource("AnimationLibrary_soqow")
+
+[node name="LaunchPoint" type="Marker2D" parent="AimPivot" unique_id=1057757032]
+position = Vector2(71, -1)
+
+[node name="PowerBar" type="ProgressBar" parent="." unique_id=1245425868]
+offset_right = 40.0
+offset_bottom = 40.0
+max_value = 50.0
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PowerBar" unique_id=908476789]
+libraries/ = SubResource("AnimationLibrary_i1fhm")

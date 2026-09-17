@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://jpul0wfqybwt"]
 
-[ext_resource type="Script" uid="uid://blv5asfi5v78w" path="res://projectile.gd" id="1_qxf0c"]
-[ext_resource type="Texture2D" uid="uid://bi0nkpu3qfbhi" path="res://icon.svg" id="2_dgwo2"]
+[ext_resource type="Script" uid="uid://blv5asfi5v78w" path="res://src/projectile.gd" id="1_dve2u"]
+[ext_resource type="Texture2D" uid="uid://bi0nkpu3qfbhi" path="res://assets/icon.svg" id="2_y10rx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxf0c"]
 size = Vector2(101.5, 81.875)
 
 [node name="Projectile" type="Area2D" unique_id=1381878518]
 collision_layer = 2
-script = ExtResource("1_qxf0c")
+script = ExtResource("1_dve2u")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1954154958]
 position = Vector2(0, -2)
 scale = Vector2(0.41015628, 0.421875)
-texture = ExtResource("2_dgwo2")
+texture = ExtResource("2_y10rx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1115770939]
 light_mask = 2
