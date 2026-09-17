@@ -26,7 +26,8 @@ func launch(from_position: Vector2, shoot_force: float, projectile_mass: float, 
 	v0 = (force / mass) * Vector2(cos(angle_rad), -sin(angle_rad))
 
 	flying = true
-
+	set_physics_process(true)
+	
 func _physics_process(delta: float) -> void:
 	if not flying:
 		return
@@ -42,12 +43,15 @@ func _physics_process(delta: float) -> void:
 	rotation = current_velocity.angle()
 
 	if global_position.y >= p0.y and elapsed > 0.1:
-		flying = false
-
-
-func _on_body_entered(_body: Area2D) -> void:
-	flying = false
-
+		_stop_projectile()
+		
+func _on_body_entered(_body: Node2D) -> void:
+	_stop_projectile()
 
 func _on_area_entered(area: Area2D) -> void:
+	_stop_projectile()
+
+# Função central para congelar o projétil exatamente onde ele colidiu
+func _stop_projectile() -> void:
 	flying = false
+	set_physics_process(false)
