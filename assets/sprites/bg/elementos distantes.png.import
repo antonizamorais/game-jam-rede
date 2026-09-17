@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv8usfcvikrpn"
-path="res://.godot/imported/seta.svg-7628c6417601e128800a4dc5f1b6dea2.ctex"
+uid="uid://ojpqv8opfvxv"
+path="res://.godot/imported/elementos distantes.png-c8281ccae9fdd1fc142d686d176790f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://seta.svg"
-dest_files=["res://.godot/imported/seta.svg-7628c6417601e128800a4dc5f1b6dea2.ctex"]
+source_file="res://assets/sprites/bg/elementos distantes.png"
+dest_files=["res://.godot/imported/elementos distantes.png-c8281ccae9fdd1fc142d686d176790f7.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

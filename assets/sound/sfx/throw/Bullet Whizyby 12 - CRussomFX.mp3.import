@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cu1f7ll2g384v"
+path="res://.godot/imported/Bullet Whizyby 12 - CRussomFX.mp3-57c7812e3909faaa18941b4e1f32698e.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/sfx/throw/Bullet Whizyby 12 - CRussomFX.mp3"
+dest_files=["res://.godot/imported/Bullet Whizyby 12 - CRussomFX.mp3-57c7812e3909faaa18941b4e1f32698e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://puc1dmtxek6j"
+path="res://.godot/imported/Comical Duck Quack.mp3-879f4465dd1e27ca67d6e505ab10d752.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/sfx/environment/animals/Comical Duck Quack.mp3"
+dest_files=["res://.godot/imported/Comical Duck Quack.mp3-879f4465dd1e27ca67d6e505ab10d752.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -13,12 +13,13 @@ config_version=5
 config/name="GameJamRede"
 run/main_scene="uid://bf2huh5daucq"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
 
 [display]
 
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
 
 [editor]
 
@@ -27,7 +28,7 @@ movie_writer/movie_file="/home/gersonfedutra/Projects/Godot/4.7.2/game-jam-rede/
 [file_customization]
 
 folder_colors={
-"res://test/": "orange"
+"res://src/test/": "orange"
 }
 
 [input]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsr5q6ro5dnrx"
+path="res://.godot/imported/Short whoose_1.mp3-fce43d44b2fab43698190b908e3688ec.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/sfx/throw/Short whoose_1.mp3"
+dest_files=["res://.godot/imported/Short whoose_1.mp3-fce43d44b2fab43698190b908e3688ec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

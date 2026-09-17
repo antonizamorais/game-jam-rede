@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dngto35t3yk4k"
+path="res://.godot/imported/Cartoon kazoo zip accent- intense.mp3-f04bface5977663488ccd04ae884bd99.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/sfx/throw/Cartoon kazoo zip accent- intense.mp3"
+dest_files=["res://.godot/imported/Cartoon kazoo zip accent- intense.mp3-f04bface5977663488ccd04ae884bd99.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

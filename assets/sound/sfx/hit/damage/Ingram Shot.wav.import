@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bt3tdkly588ta"
+path="res://.godot/imported/Ingram Shot.wav-16769c8ee89b2a3477467ae1191173f0.sample"
+
+[deps]
+
+source_file="res://assets/sound/sfx/hit/damage/Ingram Shot.wav"
+dest_files=["res://.godot/imported/Ingram Shot.wav-16769c8ee89b2a3477467ae1191173f0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

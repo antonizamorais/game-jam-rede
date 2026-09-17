@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://x7w58wg31btc"
+path="res://.godot/imported/EFX INT Punch Whip 04_2.mp3-04c469bde1aed99deb30ddb3c3310bc5.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/sfx/throw/EFX INT Punch Whip 04_2.mp3"
+dest_files=["res://.godot/imported/EFX INT Punch Whip 04_2.mp3-04c469bde1aed99deb30ddb3c3310bc5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

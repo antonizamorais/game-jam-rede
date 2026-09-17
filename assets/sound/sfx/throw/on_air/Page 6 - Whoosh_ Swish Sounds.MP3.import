@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmk1eq1niudjx"
+path="res://.godot/imported/Page 6 - Whoosh_ Swish Sounds.MP3-98b5231e2b19a2600559d5c69c31fd9c.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/sfx/throw/on_air/Page 6 - Whoosh_ Swish Sounds.MP3"
+dest_files=["res://.godot/imported/Page 6 - Whoosh_ Swish Sounds.MP3-98b5231e2b19a2600559d5c69c31fd9c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

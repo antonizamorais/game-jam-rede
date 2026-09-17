@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b3wixgptb4nol"
+path="res://.godot/imported/10 - swoosh - normal.wav-e2eee814ae9a5aa2f2e6eab9b64d982a.sample"
+
+[deps]
+
+source_file="res://assets/sound/sfx/throw/10 - swoosh - normal.wav"
+dest_files=["res://.godot/imported/10 - swoosh - normal.wav-e2eee814ae9a5aa2f2e6eab9b64d982a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

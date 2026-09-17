@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drrri7slwwmf6"
+path="res://.godot/imported/FOLEY BRANCH SWING WHOOSH 01.mp3-f06183899114a441144c2146cd506dd1.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/sfx/throw/FOLEY BRANCH SWING WHOOSH 01.mp3"
+dest_files=["res://.godot/imported/FOLEY BRANCH SWING WHOOSH 01.mp3-f06183899114a441144c2146cd506dd1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

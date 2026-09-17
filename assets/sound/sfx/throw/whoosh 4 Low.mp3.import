@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8h3mnver1tr5"
+path="res://.godot/imported/whoosh 4 Low.mp3-4a7921b514e80e5627a67c272096c712.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/sfx/throw/whoosh 4 Low.mp3"
+dest_files=["res://.godot/imported/whoosh 4 Low.mp3-4a7921b514e80e5627a67c272096c712.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
