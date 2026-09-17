@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://bhrqvhyqktx4e"]
+
+[ext_resource type="PackedScene" uid="uid://bf2huh5daucq" path="res://src/game_controller.tscn" id="1_tp5op"]
+[ext_resource type="Texture2D" uid="uid://dmpbddmte3gvm" path="res://assets/sprites/bg/ceu.png" id="1_xlegt"]
+[ext_resource type="Texture2D" uid="uid://cxke8mxordmxd" path="res://assets/sprites/bg/chão.png" id="2_0qwtu"]
+[ext_resource type="Texture2D" uid="uid://bujo36akmkkvp" path="res://assets/sprites/bg/cerca.png" id="3_36ipd"]
+[ext_resource type="Texture2D" uid="uid://ojpqv8opfvxv" path="res://assets/sprites/bg/elementos distantes.png" id="3_jvefd"]
+[ext_resource type="Texture2D" uid="uid://dscp2x3m0fpbp" path="res://assets/sprites/bg/01-Cenário-Completo.png" id="4_t101k"]
+[ext_resource type="Texture2D" uid="uid://beinbn47ogvvq" path="res://assets/sprites/bg/árvore.png" id="4_usxdn"]
+[ext_resource type="Script" uid="uid://di6fuqwyikfps" path="res://src/test/camera_2d_autoscroll.gd" id="8_53egh"]
+[ext_resource type="Texture2D" uid="uid://blemwvoevdypb" path="res://assets/sprites/house/Casa 1.PNG" id="9_dotkg"]
+[ext_resource type="Texture2D" uid="uid://ds7aytmbgx0xb" path="res://assets/sprites/house/Casa 2.PNG" id="10_tnjnu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp5op"]
+size = Vector2(475, 365)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xlegt"]
+
+[node name="World" type="Node2D" unique_id=1181135582]
+
+[node name="GameLoop" type="Node" parent="." unique_id=271210720]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=871841161]
+
+[node name="Parallax1" type="Parallax2D" parent="ParallaxBackground" unique_id=1259963766]
+scroll_scale = Vector2(0.5, 0)
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(6, 0)
+repeat_times = 5
+
+[node name="Sky" type="Sprite2D" parent="ParallaxBackground/Parallax1" unique_id=1059444075]
+texture = ExtResource("1_xlegt")
+centered = false
+
+[node name="Parallax2" type="Parallax2D" parent="ParallaxBackground" unique_id=515075633]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(1920, 0)
+repeat_times = 5
+
+[node name="Floor" type="Sprite2D" parent="ParallaxBackground/Parallax2" unique_id=323759246]
+position = Vector2(1, 697)
+texture = ExtResource("2_0qwtu")
+centered = false
+
+[node name="Parallax3" type="Parallax2D" parent="ParallaxBackground" unique_id=1003348581]
+scroll_scale = Vector2(0.75, 0)
+repeat_size = Vector2(1920, 0)
+repeat_times = 5
+
+[node name="DistantProps" type="Sprite2D" parent="ParallaxBackground/Parallax3" unique_id=784590567]
+position = Vector2(1, 590)
+texture = ExtResource("3_jvefd")
+centered = false
+
+[node name="Static" type="Parallax2D" parent="ParallaxBackground" unique_id=35724742]
+scroll_scale = Vector2(0, 0)
+
+[node name="Tree" type="Sprite2D" parent="ParallaxBackground/Static" unique_id=193004083]
+texture = ExtResource("4_usxdn")
+centered = false
+
+[node name="Parallax5" type="Parallax2D" parent="ParallaxBackground" unique_id=461429280]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(1920, 0)
+repeat_times = 5
+
+[node name="Fence" type="Sprite2D" parent="ParallaxBackground/Parallax5" unique_id=16518278]
+position = Vector2(1, 688)
+texture = ExtResource("3_36ipd")
+centered = false
+
+[node name="Static2" type="Parallax2D" parent="ParallaxBackground" unique_id=1936451935]
+follow_viewport = false
+
+[node name="HouseR" type="StaticBody2D" parent="ParallaxBackground/Static2" unique_id=1678918575]
+position = Vector2(2871, 906)
+
+[node name="Sprite" type="Sprite2D" parent="ParallaxBackground/Static2/HouseR" unique_id=960162316]
+position = Vector2(10, -124)
+texture = ExtResource("9_dotkg")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="ParallaxBackground/Static2/HouseR" unique_id=1942028166]
+position = Vector2(1127, -8.5)
+shape = SubResource("RectangleShape2D_tp5op")
+debug_color = Color(0.89815867, 0.26633158, 0.43985853, 0.41960785)
+
+[node name="HouseL" type="StaticBody2D" parent="ParallaxBackground/Static2" unique_id=1488455058]
+position = Vector2(2871, 906)
+
+[node name="Sprite" type="Sprite2D" parent="ParallaxBackground/Static2/HouseL" unique_id=568024467]
+position = Vector2(-3831, -125)
+texture = ExtResource("10_tnjnu")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="ParallaxBackground/Static2/HouseL" unique_id=2012013022]
+position = Vector2(-4942, -8.5)
+shape = SubResource("RectangleShape2D_tp5op")
+debug_color = Color(0.89815867, 0.26633158, 0.43985853, 0.41960785)
+
+[node name="Parallax6" type="Parallax2D" parent="ParallaxBackground" unique_id=1906508313]
+scroll_scale = Vector2(2, 0)
+scroll_offset = Vector2(-1440, 0)
+repeat_size = Vector2(1920, 0)
+repeat_times = 5
+
+[node name="Fence" type="Sprite2D" parent="ParallaxBackground/Parallax6" unique_id=1929928678]
+position = Vector2(1, 836)
+scale = Vector2(2, 2)
+texture = ExtResource("3_36ipd")
+centered = false
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1740188131]
+position = Vector2(0, 1080)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=90821350]
+shape = SubResource("WorldBoundaryShape2D_xlegt")
+debug_color = Color(0.89815867, 0.26633158, 0.43985853, 0.41960785)
+
+[node name="01CenárioCompleto" type="Sprite2D" parent="." unique_id=438366903]
+visible = false
+self_modulate = Color(1, 0, 0, 0.3764706)
+texture = ExtResource("4_t101k")
+centered = false
+
+[node name="GameController" parent="." unique_id=1076088073 instance=ExtResource("1_tp5op")]
+position = Vector2(-1569, 844)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1227325803]
+anchor_mode = 0
+limit_left = -1921
+limit_top = 0
+limit_right = 3844
+limit_bottom = 1080
+drag_horizontal_enabled = true
+drag_top_margin = 1.0
+drag_bottom_margin = 1.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("8_53egh")
