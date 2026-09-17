@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(_body: Node2D) -> void:
 	_stop_projectile()
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	_stop_projectile()
 
 # Função central para congelar o projétil exatamente onde ele colidiu

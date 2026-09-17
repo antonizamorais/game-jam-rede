@@ -79,6 +79,9 @@ _data = {
 &"power_loop": SubResource("Animation_vgxje")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1nbf"]
+size = Vector2(162, 681)
+
 [node name="GameController" type="Node2D" unique_id=1076088073]
 position = Vector2(200, 284)
 script = ExtResource("1_soqow")
@@ -105,3 +108,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PowerBar" unique_id=908476789]
 libraries/ = SubResource("AnimationLibrary_i1fhm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1629276205]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=558469035]
+position = Vector2(957, 34.5)
+shape = SubResource("RectangleShape2D_x1nbf")
+debug_color = Color(0.89815867, 0.26633158, 0.43985853, 0.41960785)
