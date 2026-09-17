@@ -20,5 +20,10 @@ light_mask = 2
 shape = SubResource("RectangleShape2D_qxf0c")
 debug_color = Color(0.9569574, 0.18666962, 0.27974135, 0.41960785)
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1137365836]
+limit_top = 0
+limit_bottom = 1080
+position_smoothing_enabled = true
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

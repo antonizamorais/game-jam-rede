@@ -23,9 +23,11 @@ extends Node2D
 enum State { AIMING, CHARGING, LOCKED }
 var state: State = State.AIMING
 
+
 func _ready() -> void:
 	aim_anim.play("aim_loop")
 	power_bar.value = 0
+
 
 func _process(_delta: float) -> void:
 	# Redesenha a curva todo frame enquanto carrega (a força muda a cada frame).
@@ -35,6 +37,7 @@ func _process(_delta: float) -> void:
 	_was_charging = (state == State.CHARGING)
 
 var _was_charging: bool = false
+
 
 func _draw() -> void:
 	if state != State.CHARGING:
@@ -59,11 +62,13 @@ func _draw() -> void:
 	if points.size() >= 2:
 		draw_polyline(points, Color.WHITE, trajectory_width)
 
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("launch_button"):
 		_start_charge()
 	elif event.is_action_released("launch_button"):
 		_release_launch()
+
 
 func _start_charge() -> void:
 	if state != State.AIMING:
@@ -73,6 +78,7 @@ func _start_charge() -> void:
 	power_anim.play("power_loop")
 	state = State.CHARGING
 
+
 func _release_launch() -> void:
 	if state != State.CHARGING:
 		return
@@ -81,11 +87,14 @@ func _release_launch() -> void:
 	state = State.LOCKED
 	_launch_projectile(power)
 
+
 func _launch_projectile(power: float) -> void:
 	if projectile_scene == null:
 		push_warning("Nenhuma projectile_scene atribuída.")
 		_reset_aim()
 		return
+
+	get_viewport().get_camera_2d().enabled = false
 
 	var projectile: Node = projectile_scene.instantiate()
 	get_tree().current_scene.add_child(projectile)
@@ -97,6 +106,7 @@ func _launch_projectile(power: float) -> void:
 
 	await get_tree().create_timer(reset_delay).timeout
 	_reset_aim()
+
 
 func _reset_aim() -> void:
 	aim_pivot.rotation = 0.0
