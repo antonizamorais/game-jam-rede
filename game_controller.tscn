@@ -80,7 +80,7 @@ _data = {
 }
 
 [node name="GameController" type="Node2D" unique_id=1076088073]
-position = Vector2(556, 329)
+position = Vector2(200, 284)
 script = ExtResource("1_soqow")
 projectile_scene = ExtResource("2_vgxje")
 
@@ -88,7 +88,6 @@ projectile_scene = ExtResource("2_vgxje")
 
 [node name="Sprite2D" type="Sprite2D" parent="AimPivot" unique_id=908414787]
 position = Vector2(-3.8146973e-06, 3.8146973e-06)
-rotation = -1.0471976
 scale = Vector2(8.553517, 10.949184)
 texture = ExtResource("1_3iy47")
 
@@ -96,12 +95,13 @@ texture = ExtResource("1_3iy47")
 libraries/ = SubResource("AnimationLibrary_soqow")
 
 [node name="LaunchPoint" type="Marker2D" parent="AimPivot" unique_id=1057757032]
-position = Vector2(33, -58)
+position = Vector2(71, -1)
 
 [node name="PowerBar" type="ProgressBar" parent="." unique_id=1245425868]
 offset_right = 40.0
 offset_bottom = 40.0
 max_value = 50.0
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PowerBar" unique_id=908476789]
 libraries/ = SubResource("AnimationLibrary_i1fhm")

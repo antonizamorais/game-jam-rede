@@ -3,10 +3,22 @@
 [ext_resource type="Script" uid="uid://blv5asfi5v78w" path="res://projectile.gd" id="1_qxf0c"]
 [ext_resource type="Texture2D" uid="uid://bi0nkpu3qfbhi" path="res://icon.svg" id="2_dgwo2"]
 
-[node name="Projectile" type="Node2D" unique_id=184391929]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxf0c"]
+size = Vector2(226, 651.5)
+
+[node name="Projectile" type="Area2D" unique_id=1381878518]
+collision_layer = 2
 script = ExtResource("1_qxf0c")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1954154958]
 position = Vector2(0, -2)
 scale = Vector2(0.41015628, 0.421875)
 texture = ExtResource("2_dgwo2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1115770939]
+position = Vector2(1037, 323)
+shape = SubResource("RectangleShape2D_qxf0c")
+debug_color = Color(0.8690958, 0.33168164, 0.32093742, 0.41960785)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

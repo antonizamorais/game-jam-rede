@@ -1,9 +1,9 @@
-extends Node2D
+extends Area2D
 
 @export var force: float = 1000.0
 @export var mass: float = 1.0
 @export var angle_deg: float = 45.0
-@export var gravity: float = 980.0
+@export var gravity_value: float = 980.0
 
 var p0: Vector2 = Vector2.ZERO
 var v0: Vector2 = Vector2.ZERO
@@ -14,7 +14,7 @@ func launch(from_position: Vector2, shoot_force: float, projectile_mass: float, 
 	force = shoot_force
 	mass = projectile_mass
 	angle_deg = shoot_angle_deg
-	gravity = grav
+	gravity_value = grav
 
 	p0 = from_position
 	global_position = p0
@@ -34,12 +34,20 @@ func _physics_process(delta: float) -> void:
 	elapsed += delta
 
 	# p(t) = p0 + v0*t + 0.5*a*t^2  (a = (0, gravity))
-	var gravity_term: Vector2 = 0.5 * Vector2(0.0, gravity) * elapsed * elapsed
+	var gravity_term: Vector2 = 0.5 * Vector2(0.0, gravity_value) * elapsed * elapsed
 	global_position = p0 + v0 * elapsed + gravity_term
 
 	# girar o sprite acompanhando a direção da velocidade atual
-	var current_velocity: Vector2 = v0 + Vector2(0.0, gravity) * elapsed
+	var current_velocity: Vector2 = v0 + Vector2(0.0, gravity_value) * elapsed
 	rotation = current_velocity.angle()
 
 	if global_position.y >= p0.y and elapsed > 0.1:
 		flying = false
+
+
+func _on_body_entered(_body: Area2D) -> void:
+	flying = false
+
+
+func _on_area_entered(area: Area2D) -> void:
+	flying = false
